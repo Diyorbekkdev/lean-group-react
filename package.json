@@ -2,21 +2,22 @@
   "name": "homework",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "i18next": "^23.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-tabs": "^6.0.1",
     "sass": "^1.63.6",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.0-rc.6",
-    "web-vitals": "^2.1.4",
-    "@babel/plugin-proposal-private-property-in-object": "^7.12.1"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +46,4 @@
   "devDependencies": {
     "babel-preset-react-app": "^10.0.1"
   }
-
 }
