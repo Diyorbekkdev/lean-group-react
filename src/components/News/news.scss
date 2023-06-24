@@ -1,0 +1,84 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+.news {
+  margin-top: 100px;
+  .title {
+    text-align: center;
+    @extend %sec_heading;
+    margin-bottom: 25px;
+  }
+  .card_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include media(1146px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      place-items: center;
+      gap: 25px;
+    }
+    @include media(748px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      place-items: center;
+      gap: 25px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      max-width: 320px;
+      @include media(400px) {
+        width: 100%;
+      }
+      .data {
+        margin-top: 25px;
+        color: var(--color-text-secondary, #919399);
+        font-size: 13px;
+        font-family: Montserrat;
+        font-weight: 500;
+        line-height: 13px;
+        @include media(400px) {
+          width: 100%;
+        }
+      }
+      .info {
+        margin-top: 15px;
+        color: var(--text-color-text, #2c2d2e);
+        font-size: 16px;
+        font-family: Montserrat;
+        font-weight: 500;
+        line-height: 24px;
+        @include media(400px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .see_all {
+    margin-top: 45px;
+    text-align: center;
+    .see_btn {
+      background: transparent;
+      border: none;
+      color: var(--color-primary, #ef7c00);
+      text-align: center;
+      font-size: 15px;
+      font-family: "Montserrat";
+      line-height: 20px;
+      border-radius: 4px;
+      border: 1px solid #ef7c00;
+      padding: 10px 20px;
+      transition: 0.3s ease-out;
+      text-align: center;
+      &:hover {
+        background: #ef7c00;
+        color: #fff;
+        box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+      }
+    }
+  }
+}

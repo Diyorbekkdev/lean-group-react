@@ -1,0 +1,108 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+.home{
+    position: relative;
+}
+.wrap {
+  margin-top: 95px;  
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(110vh - 177px);
+  padding: 0px 7%;
+  @include media(960px){
+    justify-content: start !important;
+  }
+  @include media(500px){
+    padding-top: 100px;
+    justify-content: start !important;
+    flex-direction: column !important;
+  }
+}
+
+.icon{
+    @include media(500px){
+        margin-top: 25px;
+        display: flex;
+      }
+}
+.wrap1 {
+  background:linear-gradient(162deg, rgba(45,45,53,0.35906862745098034) 18%, rgba(71,207,234,0) 100%, rgba(8,11,108,0.34226190476190477) 100%, rgba(9,9,121,0.9473039215686274) 100%), url("../../assets/image/background.png") center center no-repeat;
+  background-size: cover;
+}
+.wrap2 {
+  background: linear-gradient(162deg, rgba(45,45,53,0.35906862745098034) 18%, rgba(71,207,234,0) 100%, rgba(8,11,108,0.34226190476190477) 100%, rgba(9,9,121,0.9473039215686274) 100%), url("https://m.opt-union.ru/l1590670/images/photocat/1000x1000/1000699366.jpg")
+    center center no-repeat;
+  background-size: cover;
+}
+.wrap3 {
+  background: linear-gradient(162deg, rgba(45,45,53,0.35906862745098034) 18%, rgba(71,207,234,0) 100%, rgba(8,11,108,0.34226190476190477) 100%, rgba(9,9,121,0.9473039215686274) 100%), url("https://upakovkatorg.ru/image/catalog/kategorii/upakovka_dly/dlya-kosmetiki/aluminum_tubes.jpg")
+    center center no-repeat;
+  background-size: cover;
+}
+.lean-card {
+  padding: 25px;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  @include media(960px){
+    width: 100% !important;
+  }
+  .init-info {
+    color: #2c2d2e;
+    font-size: 13px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    line-height: 13px;
+  }
+  h2 {
+    margin-top: 16px;
+    color: #2c2d2e;
+    font-size: 32px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 40px;
+  }
+  p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: #2c2d2e;
+    font-size: 15px;
+    font-family: "Montserrat";
+    line-height: 20px;
+  }
+}
+
+.slick-dots {
+    position: absolute;
+    left: 60px;
+    bottom: 40px !important;
+    width: 200px !important;
+  
+    li button {
+      border: 2px solid #EF7C00 !important;
+      border-radius: 50%;
+      width: 10px !important;
+      height: 10px !important;
+  
+      &::before {
+        display: none;
+      }
+    }
+  
+    .slick-active button {
+      background: orange !important;
+    }
+  }
+
+.slick-prev, .slick-next{
+    display: none !important;
+}

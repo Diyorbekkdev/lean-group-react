@@ -1,0 +1,103 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+#products {
+  margin-bottom: 150px;
+  h1 {
+    margin-bottom: 25px;
+    @extend %sec_heading;
+    span {
+      color: orange;
+    }
+  }
+}
+
+.react-tabs {
+  width: 100%;
+  border: none;
+}
+
+.react-tabs__tab-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  @include media(487px) {
+    flex-wrap: wrap;
+  }
+}
+
+.react-tabs__tab {
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 61px;
+  border: 1px solid var(--color-border, rgba(0, 16, 61, 0.12));
+  color: orange;
+}
+
+.react-tabs__tab--selected {
+  transition: 0.3s ease-in-out;
+  background-color: orange;
+  color: #fff;
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+.react-tabs__tab-panel {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  margin-top: 15px;
+  img {
+    background: red;
+  }
+  @include media(1210px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 15px;
+  }
+  @include media(752px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 15px;
+  }
+  @include media(487px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    gap: 15px;
+  }
+}
+
+.wrap_btn {
+  width: 100%;
+  margin: 45px auto;
+  text-align: center;
+}
+.view_product {
+  background: transparent;
+  border: none;
+  color: var(--color-primary, #ef7c00);
+  text-align: center;
+  font-size: 15px;
+  font-family: "Montserrat";
+  line-height: 20px;
+  border-radius: 4px;
+  border: 1px solid #ef7c00;
+  padding: 10px 20px;
+  transition: 0.3s ease-out;
+  text-align: center;
+  &:hover {
+    background: #ef7c00;
+    color: #fff;
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  }
+}

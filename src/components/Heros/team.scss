@@ -1,0 +1,102 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+.team {
+  h1 {
+    color: #2c2d2e;
+    text-align: center;
+    font-size: 32px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 40px;
+    margin-bottom: 35px;
+    span {
+      color: orange;
+    }
+  }
+  .card_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media(1268px) {
+      flex-wrap: wrap;
+    }
+    @include media(552px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 230px;
+    .user {
+      border-radius: 50%;
+    }
+    .name {
+      margin-top: 12px;
+      color: var(--color-text, #2c2d2e);
+      text-align: center;
+      font-size: 15px;
+      font-family: Montserrat;
+      font-weight: 500;
+      line-height: 20px;
+    }
+    .user_info {
+      margin-top: 10px;
+      color: var(--color-text-secondary, #919399);
+      text-align: center;
+      font-size: 13px;
+      font-family: Montserrat;
+      font-weight: 500;
+      line-height: 13px;
+    }
+    .phone {
+      margin-top: 10px;
+      color: var(--color-text, #2c2d2e);
+      text-align: center;
+      font-size: 13px;
+      font-family: Montserrat;
+      font-weight: bold;
+      line-height: 13px;
+    }
+    .mail {
+      color: var(--color-text, #2c2d2e);
+      text-align: center;
+      font-size: 13px;
+      font-family: Montserrat;
+      font-weight: 500;
+      line-height: 13px;
+    }
+  }
+  .see_wrapper {
+    width: 100%;
+    margin: 35px auto;
+    text-align: center;
+    .see_all {
+      background: transparent;
+      border: none;
+      color: var(--color-primary, #ef7c00);
+      text-align: center;
+      font-size: 15px;
+      font-family: "Montserrat";
+      line-height: 20px;
+      border-radius: 4px;
+      border: 1px solid #ef7c00;
+      padding: 10px 20px;
+      transition: 0.3s ease-out;
+      text-align: center;
+      &:hover {
+        background: #ef7c00;
+        color: #fff;
+        box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+      }
+    }
+  }
+}

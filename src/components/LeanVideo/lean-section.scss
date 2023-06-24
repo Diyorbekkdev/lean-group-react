@@ -1,0 +1,54 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+.lean-video {
+  margin-top: 40px;
+  margin-bottom: 100px;
+  h1 {
+    @extend %sec_heading;
+    span{
+      color: orange;
+    }
+    margin-bottom: 45px;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    @include media(1165px){
+      flex-direction: column;
+      text-align: center;
+    }
+    video {
+      max-width: 552px;
+      height: 350px;
+      border-radius: 10px;
+      border: 2px solid orange;
+      @include media(1165px){
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+      }
+      @include media(610px){
+        border: none;
+      }
+    }
+    .info_video {
+      p:first-child{
+        margin-top: 0;
+      }
+      p {
+        margin-top: 35px;
+        color: #2c2d2e;
+        font-size: 15px;
+        font-family: Montserrat;
+        line-height: 28px;
+      }
+    }
+  }
+}

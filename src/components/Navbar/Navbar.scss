@@ -1,0 +1,160 @@
+@use "../../sass/mixins.scss" as nav;
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px 0;
+  background: #fff;
+
+  &__nav {
+    @extend %df;
+    nav {
+      @extend %df;
+      gap: 54px;
+      ul {
+        @extend %df;
+        li {
+          margin-right: 16px;
+          padding-right: 16px;
+          border-right: 1px solid rgb(199, 194, 194);
+          a {
+            @extend %nav-link;
+            transition: 0.3s ease-out;
+            &:hover {
+              color: orange;
+            }
+          }
+        }
+      }
+    }
+    .nav_list {
+      @include media(900px) {
+        display: none;
+      }
+    }
+    .nav_languages {
+      display: flex;
+      button {
+        background: transparent;
+        border: none;
+        @extend %nav-link;
+        padding: 0 15px;
+        transition: 0.3s ease-out;
+        &:hover {
+          color: orange;
+        }
+        &:active {
+          color: orange;
+        }
+      }
+      .ru {
+        border-right: 1px solid #ccc;
+      }
+    }
+  }
+}
+
+// dropdown style
+.header {
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+    perspective: 1000px;
+    z-index: 100;
+    &:hover {
+      cursor: pointer;
+
+      .dropdown_menu li {
+        display: block;
+      }
+    }
+  }
+
+  .dropdown_menu {
+    position: absolute;
+    top: 100%;
+    // top: 35px;
+    left: -45px;
+    max-width: 250px;
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: -5;
+    background: #fff;
+    border-radius: 5px;
+    padding-top: 25px;
+    li {
+      display: none;
+      text-align: start;
+      color: rgb(0, 0, 0);
+      padding: 20px 20px;
+      font-size: 16px;
+      margin-left: 25px;
+      opacity: 0;
+      width: 100%;
+      border: none !important;
+      &:hover {
+        color: orange;
+      }
+    }
+  }
+
+  // Menu as a whole animated
+  .dropdown:hover .dropdown_menu--animated {
+    display: block;
+  }
+
+  .dropdown_menu--animated {
+    display: none;
+
+    li {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  .dropdown_menu-4 {
+    @for $num from 1 through 5 {
+      .dropdown_item-#{$num} {
+        transform-origin: top center;
+        animation: scaleZ 300ms (#{$num * 60ms}) ease-in-out forwards;
+      }
+    }
+  }
+
+  @keyframes scaleZ {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    80% {
+      transform: scale(1.07);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .dropdown_menu-4 {
+    li {
+      a {
+        color: #363535;
+      }
+    }
+  }
+}
