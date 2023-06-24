@@ -1,14 +1,30 @@
-import React  from "react";
+import React, { useEffect, useState }  from "react";
 import logo from "../../assets/image/logo.svg";
 import "./Navbar.scss";
 import Navlist from "./Navlist";
 
 const Navbar = () => {
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const openBar = ()=>{
     document.body.classList.toggle("open-bar")
   }
   return (
-    <header className="header">
+    <header className={isScrolled ? 'header scrolled' : 'header'} >
       <div className="header__nav  container">
         <nav>
           <img src={logo} alt="logo" />
